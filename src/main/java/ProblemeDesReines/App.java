@@ -8,7 +8,7 @@ import java.util.Scanner;
  .
  . The App	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 13/04/17 14:19
+ . Last Modified : 13/04/17 17:14
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -32,8 +32,8 @@ public class App
         height = Integer.parseInt(scanner.nextLine());
         //endregion
     
-        int row, col = 0;
-    
+        int row, col;
+        
         for (int i = 0; i < width * height; i++)
         {
             col = i % width;
@@ -52,26 +52,27 @@ public class App
         while (col < width - 1 || row < height - 1)
         {
             Case currentCase = getCase(col, row);
-        
+    
             if(currentCase.isAdmissible())
             {
                 currentCase.setQueen(true);
                 currentCase.setAdmissible(false);
                 queenCount++;
-            
+    
                 System.out.println(col + " - " + row);
-            
+    
                 int x, y;
-            
+    
                 //region diagonale top left
                 x = col;
                 y = row;
                 while (x > 0 && y > 0)
                 {
-                    getCase(x, y).setAdmissible(false);
-                
                     x--;
                     y--;
+    
+                    getCase(x, y).setAdmissible(false);
+    
                 }
                 //endregion
                 //region diagonale top right
@@ -80,19 +81,19 @@ public class App
                 while (x < width && y > 0)
                 {
                     getCase(x, y).setAdmissible(false);
-                
+    
                     x++;
                     y--;
                 }
                 //endregion
-            
+    
                 //region diagonale bottom left
                 x = col;
                 y = row;
                 while (x > 0 && y < height)
                 {
                     getCase(x, y).setAdmissible(false);
-                
+    
                     x--;
                     y++;
                 }
@@ -103,53 +104,33 @@ public class App
                 while (x < width && y < height)
                 {
                     getCase(x, y).setAdmissible(false);
-                
+    
                     x++;
                     y++;
                 }
                 //endregion
-            
-                //region row left
-                x = col;
-                y = row;
-                while (x > 0)
-                {
-                    getCase(x, y).setAdmissible(false);
-                
-                    x--;
-                }
-                //endregion
-                //region row right
-                x = col;
+    
+                //region row
+                x = 0;
                 y = row;
                 while (x < width)
                 {
                     getCase(x, y).setAdmissible(false);
-                
+    
                     x++;
                 }
                 //endregion
-            
-                //region col up
+                //region col
                 x = col;
-                y = row;
-                while (y > 0)
-                {
-                    getCase(x, y).setAdmissible(false);
-                
-                    y--;
-                }
-                //endregion
-                //region col down
-                x = col;
-                y = row;
+                y = 0;
                 while (y < height)
                 {
                     getCase(x, y).setAdmissible(false);
-                
+    
                     y++;
                 }
                 //endregion
+                
             }
             
             if(col < width - 1)
