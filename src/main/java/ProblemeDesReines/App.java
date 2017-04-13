@@ -8,7 +8,7 @@ import java.util.Scanner;
  .
  . The App	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 13/04/17 11:45
+ . Last Modified : 13/04/17 14:19
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -38,7 +38,7 @@ public class App
         {
             col = i % width;
             row = i / height;
-        
+    
             listCases.add(new Case(col, row));
         }
     
@@ -49,123 +49,118 @@ public class App
     
     private static void solve (int col, int row)
     {
-        Case currentCase = getCase(col, row);
-        
-        if(currentCase.isAdmissible())
+        while (col < width - 1 || row < height - 1)
         {
-            currentCase.setQueen(true);
-            currentCase.setAdmissible(false);
-            queenCount++;
-            
-            System.out.println(col + " - " + row);
-            
-            int x, y;
-            
-            //region diagonale top left
-            x = col;
-            y = row;
-            while (x > 0 && y > 0)
-            {
-                getCase(x, y).setAdmissible(false);
-                
-                x--;
-                y--;
-            }
-            //endregion
-            //region diagonale top right
-            x = col;
-            y = row;
-            while (x < width && y > 0)
-            {
-                getCase(x, y).setAdmissible(false);
-                
-                x++;
-                y--;
-            }
-            //endregion
-            
-            //region diagonale bottom left
-            x = col;
-            y = row;
-            while (x > 0 && y < height)
-            {
-                getCase(x, y).setAdmissible(false);
-                
-                x--;
-                y++;
-            }
-            //endregion
-            //region diagonale bottom right
-            x = col;
-            y = row;
-            while (x < width && y < height)
-            {
-                getCase(x, y).setAdmissible(false);
-                
-                x++;
-                y++;
-            }
-            //endregion
-            
-            //region row left
-            x = col;
-            y = row;
-            while (x > 0)
-            {
-                getCase(x, y).setAdmissible(false);
-                
-                x--;
-            }
-            //endregion
-            //region row right
-            x = col;
-            y = row;
-            while (x < width)
-            {
-                getCase(x, y).setAdmissible(false);
-                
-                x++;
-            }
-            //endregion
-            
-            //region col up
-            x = col;
-            y = row;
-            while (y > 0)
-            {
-                getCase(x, y).setAdmissible(false);
-                
-                y--;
-            }
-            //endregion
-            //region col down
-            x = col;
-            y = row;
-            while (y < height)
-            {
-                getCase(x, y).setAdmissible(false);
-                
-                y++;
-            }
-            //endregion
-        }
+            Case currentCase = getCase(col, row);
         
-        if(col < width - 1 || row < height - 1)
-        {
-            int newCol = 0, newRow = 0;
+            if(currentCase.isAdmissible())
+            {
+                currentCase.setQueen(true);
+                currentCase.setAdmissible(false);
+                queenCount++;
+            
+                System.out.println(col + " - " + row);
+            
+                int x, y;
+            
+                //region diagonale top left
+                x = col;
+                y = row;
+                while (x > 0 && y > 0)
+                {
+                    getCase(x, y).setAdmissible(false);
+                
+                    x--;
+                    y--;
+                }
+                //endregion
+                //region diagonale top right
+                x = col;
+                y = row;
+                while (x < width && y > 0)
+                {
+                    getCase(x, y).setAdmissible(false);
+                
+                    x++;
+                    y--;
+                }
+                //endregion
+            
+                //region diagonale bottom left
+                x = col;
+                y = row;
+                while (x > 0 && y < height)
+                {
+                    getCase(x, y).setAdmissible(false);
+                
+                    x--;
+                    y++;
+                }
+                //endregion
+                //region diagonale bottom right
+                x = col;
+                y = row;
+                while (x < width && y < height)
+                {
+                    getCase(x, y).setAdmissible(false);
+                
+                    x++;
+                    y++;
+                }
+                //endregion
+            
+                //region row left
+                x = col;
+                y = row;
+                while (x > 0)
+                {
+                    getCase(x, y).setAdmissible(false);
+                
+                    x--;
+                }
+                //endregion
+                //region row right
+                x = col;
+                y = row;
+                while (x < width)
+                {
+                    getCase(x, y).setAdmissible(false);
+                
+                    x++;
+                }
+                //endregion
+            
+                //region col up
+                x = col;
+                y = row;
+                while (y > 0)
+                {
+                    getCase(x, y).setAdmissible(false);
+                
+                    y--;
+                }
+                //endregion
+                //region col down
+                x = col;
+                y = row;
+                while (y < height)
+                {
+                    getCase(x, y).setAdmissible(false);
+                
+                    y++;
+                }
+                //endregion
+            }
             
             if(col < width - 1)
             {
-                newCol = col + 1;
-                newRow = row;
+                col++;
             }
             else
             {
-                newCol = 0;
-                newRow = row + 1;
+                col = 0;
+                row++;
             }
-            
-            solve(newCol, newRow);
         }
     }
     
