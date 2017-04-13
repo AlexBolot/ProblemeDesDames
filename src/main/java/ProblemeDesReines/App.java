@@ -1,6 +1,6 @@
 package ProblemeDesReines;
 
-import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 /*................................................................................................................................
@@ -8,15 +8,15 @@ import java.util.Scanner;
  .
  . The App	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 13/04/17 17:14
+ . Last Modified : 14/04/17 00:25
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
 
 public class App
 {
-    private static ArrayList<Case> listCases = new ArrayList<Case>();
-    private static int width, height, queenCount;
+    private static int[] grid;
+    private static int   width, height, startX, startY;
     
     public static void main (String[] args)
     {
@@ -30,181 +30,152 @@ public class App
         System.out.print("Select Height : ");
     
         height = Integer.parseInt(scanner.nextLine());
+    
+        System.out.print("Select how many attempts : ");
+    
+        int attemptsToDo = Integer.parseInt(scanner.nextLine());
         //endregion
     
-        int row, col;
-        
-        for (int i = 0; i < width * height; i++)
-        {
-            col = i % width;
-            row = i / height;
+        grid = new int[width * height];
+        int maxAmount = 0;
+        long startTime = System.currentTimeMillis();
     
-            listCases.add(new Case(col, row));
+        for (int j = 0; j < attemptsToDo; j++)
+        {
+            for (int i = 0; i < width * height; i++)
+            {
+                grid[i] = 0;
+            }
+        
+            startY = new Random().nextInt(height);
+            startX = new Random().nextInt(width);
+        
+            solve(startY, startX);
+        
+            if(getPieceAmount() > maxAmount) maxAmount = getPieceAmount();
         }
     
-        solve(0, 0);
+        float deltaTime = System.currentTimeMillis() - startTime;
     
-        System.out.println(queenCount);
+        //System.out.println(maxAmount + " - " + deltaTime/1000f + " s");
+        System.out.println(maxAmount + " - " + deltaTime + " millis");
     }
     
-    private static void solve (int col, int row)
+    private static void solve (int row, int col)
     {
-        while (col < width - 1 || row < height - 1)
+        while (true)
         {
-            Case currentCase = getCase(col, row);
-    
-            if(currentCase.isAdmissible())
+            if(getStatus(row, col) == 0)
             {
-                currentCase.setQueen(true);
-                currentCase.setAdmissible(false);
-                queenCount++;
+                setStatus(row, col, 1);
     
-                System.out.println(col + " - " + row);
+                //System.out.println(row + " - " + col);
     
-                int x, y;
-    
+                int y, x;
+                
                 //region diagonale top left
-                x = col;
                 y = row;
-                while (x > 0 && y > 0)
+                x = col;
+                while (y > 0 && x > 0)
                 {
-                    x--;
                     y--;
+                    x--;
     
-                    getCase(x, y).setAdmissible(false);
-    
+                    setStatus(y, x, -1);
                 }
                 //endregion
                 //region diagonale top right
-                x = col;
                 y = row;
-                while (x < width && y > 0)
+                x = col;
+                while (y > 0 && x < width - 1)
                 {
-                    getCase(x, y).setAdmissible(false);
-    
-                    x++;
                     y--;
+                    x++;
+    
+                    setStatus(y, x, -1);
                 }
                 //endregion
     
                 //region diagonale bottom left
-                x = col;
                 y = row;
-                while (x > 0 && y < height)
+                x = col;
+                while (y < height - 1 && x > 0)
                 {
-                    getCase(x, y).setAdmissible(false);
-    
-                    x--;
                     y++;
+                    x--;
+    
+                    setStatus(y, x, -1);
                 }
                 //endregion
                 //region diagonale bottom right
-                x = col;
                 y = row;
-                while (x < width && y < height)
+                x = col;
+                while (y < height - 1 && x < width - 1)
                 {
-                    getCase(x, y).setAdmissible(false);
-    
-                    x++;
                     y++;
+                    x++;
+    
+                    setStatus(y, x, -1);
                 }
                 //endregion
     
                 //region row
-                x = 0;
-                y = row;
-                while (x < width)
+                for (x = 0; x < width; x++)
                 {
-                    getCase(x, y).setAdmissible(false);
-    
-                    x++;
+                    if(getStatus(row, x) == 0) setStatus(row, x, -1);
                 }
                 //endregion
-                //region col
-                x = col;
-                y = 0;
-                while (y < height)
+                //region column
+                for (y = 0; y < height; y++)
                 {
-                    getCase(x, y).setAdmissible(false);
-    
-                    y++;
+                    if(getStatus(y, col) == 0) setStatus(y, col, -1);
                 }
                 //endregion
-                
             }
-            
-            if(col < width - 1)
+    
+            //region change col and row for next case
+            if(row == height - 1 && col == width - 1)
+            {
+                row = 0;
+                col = 0;
+            }
+            else if(col < width - 1)
             {
                 col++;
             }
             else
             {
-                col = 0;
                 row++;
+                col = 0;
+            }
+            //endregion
+    
+            if(row == startY && col == startX)
+            {
+                break;
             }
         }
     }
     
-    private static Case getCase (int col, int row)
+    private static int getStatus (int row, int col)
     {
-        return listCases.get(col + (row * width));
+        return grid[col + (row * width)];
     }
     
-    private static class Case
+    private static void setStatus (int row, int col, int status)
     {
-        int     col;
-        int     row;
-        boolean queen;
-        boolean admissible;
+        grid[col + (row * width)] = status;
+    }
+    
+    private static int getPieceAmount ()
+    {
+        int pieceAmount = 0;
         
-        public Case (int col, int row)
+        for (int i : grid)
         {
-            setCol(col);
-            setRow(row);
-            setQueen(false);
-            setAdmissible(true);
+            if(i == 1) pieceAmount++;
         }
         
-        //region Getters and Setters
-        public boolean isAdmissible ()
-        {
-            return admissible;
-        }
-        
-        public void setAdmissible (boolean admissible)
-        {
-            this.admissible = admissible;
-        }
-        
-        public int getCol ()
-        {
-            return col;
-        }
-        
-        public void setCol (int col)
-        {
-            this.col = col;
-        }
-        
-        public int getRow ()
-        {
-            return row;
-        }
-        
-        public void setRow (int row)
-        {
-            this.row = row;
-        }
-        
-        public boolean isQueen ()
-        {
-            return queen;
-        }
-        
-        public void setQueen (boolean queen)
-        {
-            this.queen = queen;
-        }
-        //endregion
+        return pieceAmount;
     }
 }
