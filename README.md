@@ -1,25 +1,25 @@
 <h1>Chess Pieces Problem</h1>
 <h2>Summary :</h2>
 <ol>
-<li><a href="https://github.com/AlexBolot/Picolo/new/master?readme=1#1---about-the-project ">About the project</a><br />
+<li><a href="https://github.com/AlexBolot/ProblemeDesDames#1---about-the-project ">About the project</a><br />
 <ol>
-<li><a href="https://github.com/AlexBolot/Picolo/new/master?readme=1#11---the-goal ">The goal</a></li>
-<li><a href="https://github.com/AlexBolot/Picolo/new/master?readme=1#12---how-to-use ">How to use</a></li>
+<li><a href="https://github.com/AlexBolot/ProblemeDesDames#11---the-goal ">The goal</a></li>
+<li><a href="https://github.com/AlexBolot/ProblemeDesDames#12---how-to-use ">How to use</a></li>
 </ol>
 </li>
-<li><a href="https://github.com/AlexBolot/Picolo/new/master?readme=1#2---what-to-know-about-the-classes ">What to know about the classes</a><br />
+<li><a href="https://github.com/AlexBolot/ProblemeDesDames#2---what-to-know-about-the-classes ">What to know about the classes</a><br />
 <ol>
-<li><a href="https://github.com/AlexBolot/Picolo/new/master?readme=1#21---chessboard ">ChessBoard</a></li>
-<li><a href="https://github.com/AlexBolot/Picolo/new/master?readme=1#22---chesspiece ">ChessPiece</a>
+<li><a href="https://github.com/AlexBolot/ProblemeDesDames#21---chessboard ">ChessBoard</a></li>
+<li><a href="https://github.com/AlexBolot/ProblemeDesDames#22---chesspiece ">ChessPiece</a>
 <ol>
-<li><a href="https://github.com/AlexBolot/Picolo/new/master?readme=1#221---the-chess-pieces ">The Chess Pieces</a></li>
+<li><a href="https://github.com/AlexBolot/ProblemeDesDames#221---the-chess-pieces ">The Chess Pieces</a></li>
 </ol>
 </li>
 </ol>
 </li>
-<li><a href="https://github.com/AlexBolot/Picolo/new/master?readme=1#3---coming-soon ">Coming soon</a></li>
-<li><a href="https://github.com/AlexBolot/Picolo/new/master?readme=1#4---libraries ">Libraries</a></li>
-<li><a href="https://github.com/AlexBolot/Picolo/new/master?readme=1#5---author ">Author</a></li>
+<li><a href="https://github.com/AlexBolot/ProblemeDesDames/#3---coming-soon ">Coming soon</a></li>
+<li><a href="https://github.com/AlexBolot/ProblemeDesDames/#4---libraries ">Libraries</a></li>
+<li><a href="https://github.com/AlexBolot/ProblemeDesDames/#5---author ">Author</a></li>
 </ol>
 <h2>1 - About the project</h2>
 <p>This project is a study project, answering to a school assignment.</p>
@@ -82,4 +82,4 @@
 </ul>
 <p>Note : those libraries are already included in : org.jetbrains.idea.maven.model.MavenArchetype@88f75e0f</p>
 <h2>5 - Author</h2>
-<p>Alexandre BOLOT<br />My <a href="https://github.com/AlexBolot">GitHub</a><br />My <a href="https://www.linkedin.com/in/alexandrebolot">LinkedIn</a></p>
+<p>Alexandre BOLOT<br />My <a href="https://github.com/AlexBolot">GitHub</a><br />My <a href="https://www.linkedin.com/in/alexandrebolot">LinkedIn</a>
