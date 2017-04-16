@@ -48,7 +48,7 @@
 <li>The grid with the most optimal combination found during the process</li>
 </ul>
 <h2>2 - What to know about the classes</h2>
-<h3>2.2 - ChessBoard</h3>
+<h3>2.1 - ChessBoard</h3>
 <p>The ChessBoard&nbsp;class has 3 main tasks :</p>
 <ul>
 <li>Handling the grid (setting and getting the value of each position)</li>
@@ -57,10 +57,10 @@
 </ul>
 <p>Note : this class implements IChessBoard, an Interface that imposes the methods needed by the ChessPiece to apply its pattern.</p>
 <pre>public interface IChessBoard<br />{<br /> int getStatus (int row, int col);<br /> <br /> void setStatus (int row, int col, int status);<br />}</pre>
-<h3>2.3 - ChessPiece</h3>
+<h3>2.2 - ChessPiece</h3>
 <p>The ChessPiece interface&nbsp;imposes the methods needed by the ChessPiece to apply its pattern.</p>
 <pre>public abstract class ChessPiece<br />{<br />    public abstract void applyPattern (Object sender, int row, int col);<br />}</pre>
-<h4>2.3.1 - The Chess Pieces</h4>
+<h4>2.2.1 - The Chess Pieces</h4>
 <p>Here is the list of all the Chess Pieces implemented in this application :</p>
 <ul>
 <li>Rook</li>
