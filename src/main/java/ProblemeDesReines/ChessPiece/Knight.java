@@ -7,12 +7,12 @@ import ProblemeDesReines.ChessBoard;
  .
  . The Knight	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 14/04/17 19:06
+ . Last Modified : 16/04/17 17:39
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
 
-public class Knight extends ChessPiece
+public class Knight implements IChessPiece
 {
     @Override
     public void applyPattern (Object sender, int row, int col)

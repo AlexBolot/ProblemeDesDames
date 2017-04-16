@@ -7,12 +7,12 @@ import ProblemeDesReines.ChessBoard;
  .
  . The Pawn	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 14/04/17 20:39
+ . Last Modified : 16/04/17 17:39
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
 
-public class Pawn extends ChessPiece
+public class Pawn implements IChessPiece
 {
     @Override
     public void applyPattern (Object sender, int row, int col)

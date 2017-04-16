@@ -3,14 +3,14 @@ package ProblemeDesReines.ChessPiece;
 /*................................................................................................................................
  . Copyright (c)
  .
- . The ChessPiece	 Class was Coded by : Alexandre BOLOT
+ . The IChessPiece	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 14/04/17 10:49
+ . Last Modified : 16/04/17 17:39
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
 
-public abstract class ChessPiece
+public interface IChessPiece
 {
-    public abstract void applyPattern (Object sender, int row, int col);
+    void applyPattern (Object sender, int row, int col);
 }

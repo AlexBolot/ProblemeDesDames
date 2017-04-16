@@ -7,7 +7,7 @@ import ProblemeDesReines.ChessPiece.*;
  .
  . The ChessBoard	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 14/04/17 19:43
+ . Last Modified : 16/04/17 17:50
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -143,21 +143,31 @@ public class ChessBoard implements IChessBoard
     
     private void printGrid ()
     {
-        StringBuilder outputGrid = new StringBuilder();
-        
-        for (int i = 0; i < height; i++)
+        try
         {
-            for (int j = 0; j < width; j++)
-            {
-                int val = optimalGrid[j + (i * width)];
-                
-                if(val == 1) outputGrid.append(" 0 ").append("|");
-                if(val == -1) outputGrid.append(" - ").append("|");
-            }
-            outputGrid.deleteCharAt(outputGrid.length() - 1);
-            outputGrid.append("\n");
-        }
         
-        System.out.println(outputGrid);
+        
+            StringBuilder outputGrid = new StringBuilder();
+        
+            for (int i = 0; i < height; i++)
+            {
+                for (int j = 0; j < width; j++)
+                {
+                    int val = optimalGrid[j + (i * width)];
+                
+                    if(val == 1) outputGrid.append(" 0 ").append("|");
+                    if(val == -1) outputGrid.append(" - ").append("|");
+                }
+                outputGrid.deleteCharAt(outputGrid.length() - 1);
+                outputGrid.append("\n");
+            }
+        
+            System.out.println(outputGrid);
+        
+        }
+        catch (OutOfMemoryError oome)
+        {
+            oome.printStackTrace();
+        }
     }
 }

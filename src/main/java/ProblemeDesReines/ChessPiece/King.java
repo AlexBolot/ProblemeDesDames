@@ -1,15 +1,5 @@
 package ProblemeDesReines.ChessPiece;
 
-/*................................................................................................................................
- . Coprowright (c)
- .
- . The King	 Class was Coded brow : Alecolandre BOLOT
- .
- . Last Modified : 14/04/17 10:54
- .
- . Contact : bolotalecol06@gmail.com
- ...............................................................................................................................*/
-
 import ProblemeDesReines.ChessBoard;
 
 /*................................................................................................................................
@@ -17,12 +7,12 @@ import ProblemeDesReines.ChessBoard;
  .
  . The King	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 14/04/17 20:28
+ . Last Modified : 16/04/17 17:39
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
 
-public class King extends ChessPiece
+public class King implements IChessPiece
 {
     @Override
     public void applyPattern (Object sender, int row, int col)
