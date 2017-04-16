@@ -23,7 +23,7 @@
 </ol>
 <h2>1 - About the project</h2>
 <p>This project is a study project, answering to a school assignment.</p>
-<h3>1.1 - The&nbsp;goal</h3>
+<h3>1.1 - The goal</h3>
 <p>"What's the maximum of Queens that I can place on a 8x8 Chess Board without them being in conflict" ?<br />This Project is here to answer this question !<br />But not only :</p>
 <ul>
 <li>It will give you the answer to any official Chess Piece</li>
@@ -47,7 +47,7 @@
 <li>The time spend for the calculation in miliseconds</li>
 <li>The grid with the most optimal combination found during the process</li>
 </ul>
-<h2>2 -What to know about the classes</h2>
+<h2>2 - What to know about the classes</h2>
 <h3>2.2 - ChessBoard</h3>
 <p>The ChessBoard&nbsp;class has 3 main tasks :</p>
 <ul>
