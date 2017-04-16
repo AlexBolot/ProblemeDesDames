@@ -59,17 +59,10 @@
 <pre>public interface IChessBoard<br />{<br /> int getStatus (int row, int col);<br /> <br /> void setStatus (int row, int col, int status);<br />}</pre>
 <h3>2.2 - ChessPiece</h3>
 <p>The ChessPiece interface&nbsp;imposes the methods needed by the ChessPiece to apply its pattern.</p>
-<pre>public abstract class ChessPiece<br />{<br />    public abstract void applyPattern (Object sender, int row, int col);<br />}</pre>
+<pre>public abstract class ChessPiece<br />{<br /> public abstract void applyPattern (Object sender, int row, int col);<br />}</pre>
 <h4>2.2.1 - The Chess Pieces</h4>
 <p>Here is the list of all the Chess Pieces implemented in this application :</p>
-<ul>
-<li>Rook</li>
-<li>Knight</li>
-<li>Bishop</li>
-<li>Queen</li>
-<li>King</li>
-<li>Pawn</li>
-</ul>
+<p><img src="http://d2r5da613aq50s.cloudfront.net/wp-content/uploads/281902.image0.jpg" alt="ChessPiecePatterns" width="535" height="386" /></p>
 <p>Note : The Chess Pieces all extends the ChessPiece class. This way they all behave the same way.</p>
 <h2>3 - Coming soon</h2>
 <p>Please check the TODO.md file in this repository to find out what updates are planned.</p>
@@ -82,4 +75,4 @@
 </ul>
 <p>Note : those libraries are already included in : org.jetbrains.idea.maven.model.MavenArchetype@88f75e0f</p>
 <h2>5 - Author</h2>
-<p>Alexandre BOLOT<br />My <a href="https://github.com/AlexBolot">GitHub</a><br />My <a href="https://www.linkedin.com/in/alexandrebolot">LinkedIn</a>
+<p>Alexandre BOLOT<br />My <a href="https://github.com/AlexBolot">GitHub</a><br />My <a href="https://www.linkedin.com/in/alexandrebolot">LinkedIn</a></p>
