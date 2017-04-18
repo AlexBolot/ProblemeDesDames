@@ -1,4 +1,6 @@
-<h1>Chess Pieces Problem</h1>
+<h1>Chess Pieces Problem
+<a href="https://www.codefactor.io/repository/github/alexbolot/problemedesdames"><img src="https://www.codefactor.io/repository/github/alexbolot/problemedesdames/badge" /></a>
+</h1>
 <h2>Summary :</h2>
 <ol>
 <li><a href="https://github.com/AlexBolot/ProblemeDesDames#1---about-the-project ">About the project</a><br />
