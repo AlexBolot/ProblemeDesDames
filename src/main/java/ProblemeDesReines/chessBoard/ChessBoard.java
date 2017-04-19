@@ -1,4 +1,4 @@
-package ProblemeDesReines;
+package ProblemeDesReines.chessBoard;
 
 import ProblemeDesReines.chessPiece.*;
 
@@ -7,7 +7,7 @@ import ProblemeDesReines.chessPiece.*;
  .
  . The ChessBoard	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 19/04/17 16:43
+ . Last Modified : 19/04/17 16:45
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
