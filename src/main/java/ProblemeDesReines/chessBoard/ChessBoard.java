@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
  .
  . The ChessBoard	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 19/04/17 17:12
+ . Last Modified : 19/04/17 20:08
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -39,7 +39,7 @@ public class ChessBoard implements IChessBoard
         }
     }
     
-    public void start ()
+    public String start (boolean printResult)
     {
         int maxAmount = 0;
         long startTime = System.nanoTime();
@@ -48,6 +48,8 @@ public class ChessBoard implements IChessBoard
         {
             for (int x = 0; x < width; x++)
             {
+                initGrid();
+                
                 startY = y;
                 startX = x;
                 
@@ -60,21 +62,23 @@ public class ChessBoard implements IChessBoard
                 }
             }
         }
-        
-        long deltaTime = System.nanoTime() - startTime;
-        
-        System.out.println(maxAmount + " - " + TimeUnit.MILLISECONDS.convert(deltaTime, TimeUnit.NANOSECONDS) + " millis");
-        
-        printGrid();
+    
+        long deltaTime = TimeUnit.MILLISECONDS.convert(System.nanoTime() - startTime, TimeUnit.NANOSECONDS);
+    
+        if(printResult) printGrid();
+    
+        return maxAmount + ";" + deltaTime;
     }
     
-    public void start (int attemptsToDo)
+    public String start (int attemptsToDo, boolean printResult)
     {
         int maxAmount = 0;
         long startTime = System.nanoTime();
         
         for (int j = 0; j < attemptsToDo; j++)
         {
+            initGrid();
+            
             startY = new Random().nextInt(height);
             startX = new Random().nextInt(width);
             
@@ -87,11 +91,11 @@ public class ChessBoard implements IChessBoard
             }
         }
     
-        long deltaTime = System.nanoTime() - startTime;
+        long deltaTime = TimeUnit.MILLISECONDS.convert(System.nanoTime() - startTime, TimeUnit.NANOSECONDS);
     
-        System.out.println(maxAmount + " - " + TimeUnit.MILLISECONDS.convert(deltaTime, TimeUnit.NANOSECONDS) + " millis");
-        
-        printGrid();
+        if(printResult) printGrid();
+    
+        return maxAmount + ";" + deltaTime;
     }
     
     private void solve (int row, int col)
