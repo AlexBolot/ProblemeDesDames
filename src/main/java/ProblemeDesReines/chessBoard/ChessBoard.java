@@ -2,29 +2,70 @@ package ProblemeDesReines.chessBoard;
 
 import ProblemeDesReines.chessPiece.*;
 
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
+
 /*................................................................................................................................
  . Copyright (c)
  .
  . The ChessBoard	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 19/04/17 16:45
+ . Last Modified : 19/04/17 17:12
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
 
 public class ChessBoard implements IChessBoard
 {
-    public int[] grid, optimalGrid;
-    public int width, height, startX, startY;
+    public int width, height;
+    private int[] grid, optimalGrid;
+    private int startX, startY;
     private ChessPieceType pieceType;
     
-    public ChessBoard (int width, int height, ChessPieceType pieceType, int attemptsToDo)
+    public ChessBoard (int width, int height, ChessPieceType pieceType)
     {
         this.width = width;
         this.height = height;
         this.pieceType = pieceType;
         
         grid = new int[width * height];
+    }
+    
+    private void initGrid ()
+    {
+        for (int i = 0; i < width * height; i++)
+        {
+            grid[i] = 0;
+        }
+    }
+    
+    public void start ()
+    {
+        int maxAmount = 0;
+        long startTime = System.nanoTime();
+        
+        for (int y = 0; y < height; y++)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                startY = y;
+                startX = x;
+                
+                solve(startY, startX);
+                
+                if(getPieceAmount() > maxAmount)
+                {
+                    maxAmount = getPieceAmount();
+                    optimalGrid = grid.clone();
+                }
+            }
+        }
+        
+        long deltaTime = System.nanoTime() - startTime;
+        
+        System.out.println(maxAmount + " - " + TimeUnit.MILLISECONDS.convert(deltaTime, TimeUnit.NANOSECONDS) + " millis");
+        
+        printGrid();
     }
     
     public void start (int attemptsToDo)
@@ -34,13 +75,8 @@ public class ChessBoard implements IChessBoard
         
         for (int j = 0; j < attemptsToDo; j++)
         {
-            for (int i = 0; i < width * height; i++)
-            {
-                grid[i] = 0;
-            }
-            
-            startY = 0;//new Random().nextInt(height);
-            startX = 0;//new Random().nextInt(width);
+            startY = new Random().nextInt(height);
+            startX = new Random().nextInt(width);
             
             solve(startY, startX);
             
@@ -50,13 +86,12 @@ public class ChessBoard implements IChessBoard
                 optimalGrid = grid.clone();
             }
         }
-        
-        float deltaTime = System.nanoTime() - startTime;
-        
-        System.out.println(maxAmount + " - " + deltaTime / 100000 + " millis");
+    
+        long deltaTime = System.nanoTime() - startTime;
+    
+        System.out.println(maxAmount + " - " + TimeUnit.MILLISECONDS.convert(deltaTime, TimeUnit.NANOSECONDS) + " millis");
         
         printGrid();
-        
     }
     
     private void solve (int row, int col)
@@ -145,25 +180,25 @@ public class ChessBoard implements IChessBoard
     {
         try
         {
-        
-        
+    
+    
             StringBuilder outputGrid = new StringBuilder();
-        
+    
             for (int i = 0; i < height; i++)
             {
                 for (int j = 0; j < width; j++)
                 {
                     int val = optimalGrid[j + (i * width)];
-                
+    
                     if(val == 1) outputGrid.append(" 0 ").append("|");
                     if(val == -1) outputGrid.append(" - ").append("|");
                 }
                 outputGrid.deleteCharAt(outputGrid.length() - 1);
                 outputGrid.append("\n");
             }
-        
+    
             System.out.println(outputGrid);
-        
+    
         }
         catch (OutOfMemoryError oome)
         {

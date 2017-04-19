@@ -10,7 +10,7 @@ import java.util.Scanner;
  .
  . The App	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 19/04/17 16:45
+ . Last Modified : 19/04/17 17:12
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -37,11 +37,18 @@ public class App
         
         System.out.print("Select how many attempts : ");
     
-        int attemptsToDo = Integer.parseInt(scanner.nextLine());
+        String attemptsToDo = scanner.nextLine();
         //endregion
     
-        ChessBoard chessBoard = new ChessBoard(width, height, pieceType, attemptsToDo);
+        ChessBoard chessBoard = new ChessBoard(width, height, pieceType);
     
-        chessBoard.start(attemptsToDo);
+        if(attemptsToDo.equalsIgnoreCase("All"))
+        {
+            chessBoard.start();
+        }
+        else
+        {
+            chessBoard.start(Integer.parseInt(attemptsToDo));
+        }
     }
 }
