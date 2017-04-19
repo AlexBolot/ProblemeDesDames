@@ -1,13 +1,13 @@
-package ProblemeDesReines.ChessPiece;
+package ProblemeDesReines.chessPiece;
 
-import ProblemeDesReines.ChessBoard;
+import ProblemeDesReines.chessBoard.ChessBoard;
 
 /*................................................................................................................................
  . Copyright (c)
  .
  . The King	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 16/04/17 17:39
+ . Last Modified : 19/04/17 16:45
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/

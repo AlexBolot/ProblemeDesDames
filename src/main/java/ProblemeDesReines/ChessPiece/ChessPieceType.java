@@ -1,11 +1,11 @@
-package ProblemeDesReines.ChessPiece;
+package ProblemeDesReines.chessPiece;
 
 /*................................................................................................................................
  . Copyright (c)
  .
  . The ChessPieceType	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 14/04/17 10:29
+ . Last Modified : 19/04/17 16:43
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
