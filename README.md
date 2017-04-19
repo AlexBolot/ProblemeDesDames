@@ -42,7 +42,10 @@
 <li>Height of your grid</li>
 <li>The Chess Piece you want to use</li>
 <li>How many attempts (note that the more attemps you select, the more accurate your result will be)</li>
+<li>If you want to print the grid at the end (Y for yes, N for no)</li>
 </ul>
+<p>Note, if you type "All" as amount of attemps, it will try all possibilities.<br/>
+It will give a really accurate result but it will take a lot more time !</p>
 <p>It will the solve the problem and print 3 informations :</p>
 <ul>
 <li>The max number of ChessPieces placed on the grid</li>
