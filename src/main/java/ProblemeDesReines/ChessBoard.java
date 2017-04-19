@@ -1,13 +1,13 @@
 package ProblemeDesReines;
 
-import ProblemeDesReines.ChessPiece.*;
+import ProblemeDesReines.chessPiece.*;
 
 /*................................................................................................................................
  . Copyright (c)
  .
  . The ChessBoard	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 16/04/17 17:50
+ . Last Modified : 19/04/17 16:43
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/

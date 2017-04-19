@@ -1,6 +1,6 @@
 package ProblemeDesReines;
 
-import ProblemeDesReines.ChessPiece.ChessPieceType;
+import ProblemeDesReines.chessPiece.ChessPieceType;
 
 import java.util.Scanner;
 
@@ -9,7 +9,7 @@ import java.util.Scanner;
  .
  . The App	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 14/04/17 20:42
+ . Last Modified : 19/04/17 16:43
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
