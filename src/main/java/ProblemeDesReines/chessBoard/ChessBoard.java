@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
  .
  . The ChessBoard	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 19/04/17 20:08
+ . Last Modified : 23/04/17 17:15
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -42,6 +42,7 @@ public class ChessBoard implements IChessBoard
     public String start (boolean printResult)
     {
         int maxAmount = 0;
+        int combinCount = 0;
         long startTime = System.nanoTime();
         
         for (int y = 0; y < height; y++)
@@ -58,8 +59,10 @@ public class ChessBoard implements IChessBoard
                 if(getPieceAmount() > maxAmount)
                 {
                     maxAmount = getPieceAmount();
+                    combinCount = 1;
                     optimalGrid = grid.clone();
                 }
+                else if(getPieceAmount() == maxAmount) combinCount++;
             }
         }
     
@@ -67,12 +70,13 @@ public class ChessBoard implements IChessBoard
     
         if(printResult) printGrid();
     
-        return maxAmount + ";" + deltaTime;
+        return maxAmount + ";" + deltaTime + ";" + combinCount;
     }
     
     public String start (int attemptsToDo, boolean printResult)
     {
         int maxAmount = 0;
+        int combinCount = 0;
         long startTime = System.nanoTime();
         
         for (int j = 0; j < attemptsToDo; j++)
@@ -87,15 +91,17 @@ public class ChessBoard implements IChessBoard
             if(getPieceAmount() > maxAmount)
             {
                 maxAmount = getPieceAmount();
+                combinCount = 1;
                 optimalGrid = grid.clone();
             }
+            else if(getPieceAmount() == maxAmount) combinCount++;
         }
     
         long deltaTime = TimeUnit.MILLISECONDS.convert(System.nanoTime() - startTime, TimeUnit.NANOSECONDS);
     
         if(printResult) printGrid();
     
-        return maxAmount + ";" + deltaTime;
+        return maxAmount + ";" + deltaTime + ";" + combinCount;
     }
     
     private void solve (int row, int col)

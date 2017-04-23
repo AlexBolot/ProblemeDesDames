@@ -10,7 +10,7 @@ import java.util.Scanner;
  .
  . The App	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 19/04/17 20:08
+ . Last Modified : 23/04/17 16:31
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -67,7 +67,11 @@ public class App
             output.append(pieceType.name()).append("s");
             output.append(" - ");
             output.append(result.split(";")[1]);
-            output.append(" milis").append("\n");
+            output.append(" milis");
+            output.append(" - ");
+            output.append(result.split(";")[2]);
+            output.append(" possible arangements");
+            output.append("\n");
         
             System.out.println(output);
         }
