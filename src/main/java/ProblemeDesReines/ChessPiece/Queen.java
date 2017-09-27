@@ -7,22 +7,40 @@ import ProblemeDesReines.chessBoard.ChessBoard;
  .
  . The Queen	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 19/04/17 16:45
+ . Last Modified : 27/09/17 22:54
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
 
+/**
+ The Queen class implements IChessPiece.<br>
+ Its pattern is : checking all around on full range.<br>
+ <br>
+ __ Class Dependency : ChessBoard, IChessPiece __
+ */
 public class Queen implements IChessPiece
 {
+    /**
+     This method will apply a pattern on the [sender] ChessBoard.<br>
+     <br>
+     - Pattern : All around.<br>
+     - Range : Full.<br>
+     <br>
+     __ Class Dependency : ChessBoard __
+
+     @param sender The ChessBoard to apply the pattern on.
+     @param row    The row number of the start cell.
+     @param col    The col number of the start cell.
+     */
     @Override
     public void applyPattern (Object sender, int row, int col)
     {
-        if(!(sender instanceof ChessBoard)) return;
-        
+        if (!(sender instanceof ChessBoard)) return;
+
         ChessBoard chessBoard = (ChessBoard) sender;
-        
+
         int y, x;
-        
+
         //region diagonale top left
         y = row;
         x = col;
@@ -30,7 +48,7 @@ public class Queen implements IChessPiece
         {
             y--;
             x--;
-            
+
             chessBoard.setStatus(y, x, -1);
         }
         //endregion
@@ -41,11 +59,11 @@ public class Queen implements IChessPiece
         {
             y--;
             x++;
-            
+
             chessBoard.setStatus(y, x, -1);
         }
         //endregion
-        
+
         //region diagonale bottom left
         y = row;
         x = col;
@@ -53,7 +71,7 @@ public class Queen implements IChessPiece
         {
             y++;
             x--;
-            
+
             chessBoard.setStatus(y, x, -1);
         }
         //endregion
@@ -64,21 +82,21 @@ public class Queen implements IChessPiece
         {
             y++;
             x++;
-            
+
             chessBoard.setStatus(y, x, -1);
         }
         //endregion
-        
+
         //region row
         for (x = 0; x < chessBoard.width; x++)
         {
-            if(chessBoard.getStatus(row, x) == 0) chessBoard.setStatus(row, x, -1);
+            if (chessBoard.getStatus(row, x) == 0) chessBoard.setStatus(row, x, -1);
         }
         //endregion
         //region column
         for (y = 0; y < chessBoard.height; y++)
         {
-            if(chessBoard.getStatus(y, col) == 0) chessBoard.setStatus(y, col, -1);
+            if (chessBoard.getStatus(y, col) == 0) chessBoard.setStatus(y, col, -1);
         }
         //endregion   
     }
