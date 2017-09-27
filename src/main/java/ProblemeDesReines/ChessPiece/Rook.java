@@ -1,13 +1,14 @@
 package ProblemeDesReines.chessPiece;
 
 import ProblemeDesReines.chessBoard.ChessBoard;
+import ProblemeDesReines.chessBoard.IChessBoard;
 
 /*................................................................................................................................
  . Copyright (c)
  .
  . The Rook	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 27/09/17 22:56
+ . Last Modified : 27/09/17 22:58
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -33,7 +34,7 @@ public class Rook implements IChessPiece
      @param col    The col number of the start cell.
      */
     @Override
-    public void applyPattern (Object sender, int row, int col)
+    public void applyPattern (IChessBoard sender, int row, int col)
     {
         if (!(sender instanceof ChessBoard)) return;
 

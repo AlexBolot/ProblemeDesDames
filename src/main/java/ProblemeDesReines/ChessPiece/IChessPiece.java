@@ -1,11 +1,13 @@
 package ProblemeDesReines.chessPiece;
 
+import ProblemeDesReines.chessBoard.IChessBoard;
+
 /*................................................................................................................................
  . Copyright (c)
  .
  . The IChessPiece	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 27/09/17 18:17
+ . Last Modified : 27/09/17 22:58
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -23,5 +25,5 @@ public interface IChessPiece
      @param row    The row number of the start cell.
      @param col    The col number of the start cell.
      */
-    void applyPattern (Object sender, int row, int col);
+    void applyPattern (IChessBoard sender, int row, int col);
 }
