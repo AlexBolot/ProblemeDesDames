@@ -7,7 +7,7 @@ import ProblemeDesReines.chessBoard.IChessBoard;
  .
  . The IChessPiece	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 27/09/17 22:58
+ . Last Modified : 28/09/17 21:57
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -22,8 +22,8 @@ public interface IChessPiece
      This method will apply a pattern on the [sender] ChessBoard.<br>
 
      @param sender The ChessBoard to apply the pattern on.
-     @param row    The row number of the start cell.
-     @param col    The col number of the start cell.
+     @param row    The row index of the start cell.
+     @param col    The col index of the start cell.
      */
     void applyPattern (IChessBoard sender, int row, int col);
 }

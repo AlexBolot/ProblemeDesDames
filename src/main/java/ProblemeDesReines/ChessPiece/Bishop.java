@@ -9,7 +9,7 @@ import ProblemeDesReines.chessBoard.IChessBoard;
  .
  . The Bishop	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 27/09/17 22:58
+ . Last Modified : 28/09/17 21:57
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -31,8 +31,8 @@ public class Bishop implements IChessPiece
      __ Class Dependency : ChessBoard __
 
      @param sender The ChessBoard to apply the pattern on.
-     @param row    The row number of the start cell.
-     @param col    The col number of the start cell.
+     @param row    The row index of the start cell.
+     @param col    The col index of the start cell.
      */
     public void applyPattern (IChessBoard sender, int row, int col)
     {
