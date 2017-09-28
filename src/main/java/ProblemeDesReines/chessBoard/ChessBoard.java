@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
  .
  . The ChessBoard	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 28/09/17 22:00
+ . Last Modified : 28/09/17 23:08
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -35,6 +35,10 @@ public class ChessBoard implements IChessBoard
      */
     public ChessBoard (int width, int height, ChessPieceType pieceType) throws IllegalArgumentException
     {
+        if (width <= 0) throw new IllegalArgumentException("Error : Width —> !(" + width + " > 0)");
+        if (height <= 0) throw new IllegalArgumentException("Error : Height —> !(" + height + " > 0)");
+        if (pieceType == null) throw new IllegalArgumentException("Error : PieceType is null");
+
         this.width = width;
         this.height = height;
         this.pieceType = pieceType;
