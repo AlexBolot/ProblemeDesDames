@@ -10,7 +10,7 @@ import java.util.Scanner;
  .
  . The App	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 28/09/17 23:08
+ . Last Modified : 29/09/17 15:13
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -22,7 +22,6 @@ public class App
     {
         while (true)
         {
-            //region initialization
             Scanner scanner = new Scanner(System.in);
 
             //region read Width and Height
@@ -112,6 +111,11 @@ public class App
         }
     }
 
+    /**
+     Gets an Exception, prints out its <i>getMessage()</i> and exits Runtime with code 1.
+
+     @param e The Exception that has to be printed.
+     */
     private static void printError (Exception e)
     {
         StringBuilder str = new StringBuilder();
@@ -132,6 +136,13 @@ public class App
         System.exit(1);
     }
 
+    /**
+     Tests if [string] can be casted in an int strictly positive.<br>
+     If false, will raise and use <i>printError()</i> a <i>new IllegalArgumentError</i>.
+
+     @param string Value to be casted.
+     @return The int value of [string] if it was able to be casted and is strictly positive.
+     */
     private static int positiveIntTryParse (String string)
     {
         int res = 0;
