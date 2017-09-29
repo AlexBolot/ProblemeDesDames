@@ -2,4 +2,4 @@
 
 - [ ] Add UnitTesting, try to reach full coverage
     - [ ] Measure what is the max n x n supported
-- [ ] Add JavaDoc
+- [X] Add JavaDoc
