@@ -10,12 +10,12 @@ import java.util.Scanner;
  .
  . The App	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 29/09/17 15:13
+ . Last Modified : 30/09/17 23:49
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
 
-@SuppressWarnings ("ConstantConditions")
+@SuppressWarnings ({"ConstantConditions", "InfiniteLoopStatement"})
 public class App
 {
     public static void main (String[] args)
@@ -59,11 +59,11 @@ public class App
             if (attemptsToDo.equalsIgnoreCase("Stop")) return;
 
             if (!attemptsToDo.equalsIgnoreCase("All")) formatedAttemptsToDo = positiveIntTryParse(attemptsToDo);
+            //endregion
 
+            //region read print result
             System.out.print("Print result (Y/N) :");
-
             boolean printResult = scanner.nextLine().contains("Y");
-
             //endregion
 
             //region init of ChessBoard chessBoard
@@ -78,30 +78,30 @@ public class App
             }
             //endregion
 
-            //region init of String result
-            String result;
+            //region init of DataTransferObject as result
+            ChessBoard.DataTransferObject dto;
 
             if (attemptsToDo.equalsIgnoreCase("All"))
             {
-                result = chessBoard.start(printResult);
+                dto = chessBoard.start(printResult);
             }
             else
             {
-                result = chessBoard.start(formatedAttemptsToDo, printResult);
+                dto = chessBoard.start(formatedAttemptsToDo, printResult);
             }
             //endregion
 
             //region printing the result
             StringBuilder output = new StringBuilder();
             output.append("\n");
-            output.append(result.split(";")[0]);
+            output.append(dto.getMaxAmount());
             output.append(" ");
             output.append(pieceType.name()).append("s");
             output.append(" - ");
-            output.append(result.split(";")[1]);
+            output.append(dto.getDeltaTime());
             output.append(" milis");
             output.append(" - ");
-            output.append(result.split(";")[2]);
+            output.append(dto.getCombinCount());
             output.append(" possible arangements");
             output.append("\n");
 
@@ -151,7 +151,7 @@ public class App
         {
             res = Integer.parseInt(string);
 
-            if (res <= 0) printError(new IllegalArgumentException("Error —> !(" + string + " > 0)"));
+            if (res <= 0) printError(new IllegalArgumentException("Error —> " + string + " not strictly positive"));
         }
         catch (NumberFormatException nfe)
         {

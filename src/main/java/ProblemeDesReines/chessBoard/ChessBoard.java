@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
  .
  . The ChessBoard	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 28/09/17 23:08
+ . Last Modified : 30/09/17 23:46
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -35,8 +35,8 @@ public class ChessBoard implements IChessBoard
      */
     public ChessBoard (int width, int height, ChessPieceType pieceType) throws IllegalArgumentException
     {
-        if (width <= 0) throw new IllegalArgumentException("Error : Width —> !(" + width + " > 0)");
-        if (height <= 0) throw new IllegalArgumentException("Error : Height —> !(" + height + " > 0)");
+        if (width <= 0) throw new IllegalArgumentException("Error : width not strictly positive");
+        if (height <= 0) throw new IllegalArgumentException("Error : height not strictly positive");
         if (pieceType == null) throw new IllegalArgumentException("Error : PieceType is null");
 
         this.width = width;
@@ -59,7 +59,13 @@ public class ChessBoard implements IChessBoard
 
     /**
      This method will try to solve the MaxPieces problem on the grid.<br>
-     It will attempt it [width] x [height] times as it will try solving starting from every cell.
+     It will attempt it [width] x [height] times as it will try solving starting from every cell.<br>
+     <br>
+     <hr>
+     <h3>
+     Note : This is always 100% reliable but requires a more time as it tries all combinations
+     </h3>
+     <hr>
 
      @param printResult Does the user want to print the best combination grid on System.out ?
      @return A String representation the informations to print to the user :<br>
@@ -67,7 +73,7 @@ public class ChessBoard implements IChessBoard
      —> duration of the process.<br>
      —> amount of other combination with same amount of pieces.
      */
-    public String start (boolean printResult)
+    public DataTransferObject start (boolean printResult)
     {
         int maxAmount = 0;
         int combinCount = 0;
@@ -99,12 +105,33 @@ public class ChessBoard implements IChessBoard
 
         if (printResult) printGrid();
 
-        return maxAmount + ";" + deltaTime + ";" + combinCount;
+        return new DataTransferObject(maxAmount, deltaTime, combinCount);
     }
 
     /**
      This method will try to solve the MaxPieces problem on the grid.<br>
-     It will attempt it [attemptsToDo] times, using new random start coords each time.
+     It will attempt it [attemptsToDo] times, using new random start coords each time.<br>
+     <br>
+     <hr>
+     <h3>Notes :</h3>
+     — Note 1 : This is not always 100% reliable<br>
+     — Note 2 : MaxAttempt is the attempts of start(All) : [width] x [height]<br>
+     <br>
+     <hr>
+     <h3>Influence of increasing [attemptsToDo] :</h3>
+     — More reliable<br>
+     — Less performance<br>
+     <br>
+     <hr>
+     <h3>Accuracy tests :</h3>
+     1. Rook : 100% reliable no matter [attemptsToDo]<br>
+     2. King : 100% reliable no matter [attemptsToDo]<br>
+     3. Pawn : 99% reliable. Can be trusted if [attemptsToDo] superior to 1% MaxAttempt<br>
+     4. Bishop : Mostly reliable => 50% of MaxAttempt —> 5% wrong and 0.5% delta.<br>
+     5. Knight : Not very reliable => 50% of MaxAttempt —> 50% wrong and 0.45% delta.<br>
+     6. Queen : Mostly reliable => 25% of MaxAttempt —> 2% wrong and 1% delta.<br>
+     <br>
+     <hr>
 
      @param printResult Does the user want to print the best combination grid on System.out ?
      @return A String representation the informations to print to the user :<br>
@@ -112,8 +139,10 @@ public class ChessBoard implements IChessBoard
      —> duration of the process.<br>
      —> amount of other combination with same amount of pieces.
      */
-    public String start (int attemptsToDo, boolean printResult)
+    public DataTransferObject start (int attemptsToDo, boolean printResult) throws IllegalArgumentException
     {
+        if (attemptsToDo <= 0) throw new IllegalArgumentException("Error : attemptsToDo not strictly positive");
+
         int maxAmount = 0;
         int combinCount = 0;
         long startTime = System.nanoTime();
@@ -141,7 +170,7 @@ public class ChessBoard implements IChessBoard
 
         if (printResult) printGrid();
 
-        return maxAmount + ";" + deltaTime + ";" + combinCount;
+        return new DataTransferObject(maxAmount, deltaTime, combinCount);
     }
 
     /**
@@ -289,5 +318,38 @@ public class ChessBoard implements IChessBoard
         {
             oome.printStackTrace();
         }
+    }
+
+    /**
+     Class used to easily return several informations from a mehtod
+     */
+    public class DataTransferObject
+    {
+        private int  maxAmount;
+        private long deltaTime;
+        private int  combinCount;
+
+        DataTransferObject (int maxAmount, long deltaTime, int combinCount)
+        {
+            this.maxAmount = maxAmount;
+            this.deltaTime = deltaTime;
+            this.combinCount = combinCount;
+        }
+
+        public int getMaxAmount ()
+        {
+            return maxAmount;
+        }
+
+        public long getDeltaTime ()
+        {
+            return deltaTime;
+        }
+
+        public int getCombinCount ()
+        {
+            return combinCount;
+        }
+
     }
 }
