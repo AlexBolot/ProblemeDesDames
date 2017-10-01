@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
  .
  . The ChessBoard	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 30/09/17 23:46
+ . Last Modified : 01/10/17 02:05
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
@@ -127,9 +127,9 @@ public class ChessBoard implements IChessBoard
      1. Rook : 100% reliable no matter [attemptsToDo]<br>
      2. King : 100% reliable no matter [attemptsToDo]<br>
      3. Pawn : 99% reliable. Can be trusted if [attemptsToDo] superior to 1% MaxAttempt<br>
-     4. Bishop : Mostly reliable => 50% of MaxAttempt —> 5% wrong and 0.5% delta.<br>
-     5. Knight : Not very reliable => 50% of MaxAttempt —> 50% wrong and 0.45% delta.<br>
-     6. Queen : Mostly reliable => 25% of MaxAttempt —> 2% wrong and 1% delta.<br>
+     4. Queen : Mostly reliable => 25% of MaxAttempt —> 2% wrong and 1% delta.<br>
+     5. Bishop : Mostly reliable => 50% of MaxAttempt —> 5% wrong and 0.5% delta.<br>
+     6. Knight : Not very reliable => 50% of MaxAttempt —> 50% wrong and 0.45% delta.<br>
      <br>
      <hr>
 
