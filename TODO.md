@@ -1,5 +1,4 @@
 <h1> TODOLIST </h1>
 
-- [ ] Add UnitTesting, try to reach full coverage
-    - [ ] Measure what is the max n x n supported
+- [x] Add UnitTesting, try to reach full coverage
 - [X] Add JavaDoc
