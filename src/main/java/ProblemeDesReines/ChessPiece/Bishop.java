@@ -9,33 +9,31 @@ import ProblemeDesReines.chessBoard.IChessBoard;
  .
  . The Bishop	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 28/09/17 21:57
+ . Last Modified : 27/12/2019 18:23
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
 
 /**
- The Bishop class implements IChessPiece.<br>
- Its pattern is : checking diagonals on full range.<br>
- <br>
- __ Class Dependency : ChessBoard, IChessPiece __
+ * The Bishop class implements IChessPiece.<br>
+ * Its pattern is : checking diagonals on full range.<br>
+ * <br>
+ * __ Class Dependency : ChessBoard, IChessPiece __
  */
-public class Bishop implements IChessPiece
-{
+public class Bishop implements IChessPiece {
     /**
-     This method will apply a pattern on the [sender] ChessBoard.<br>
-     <br>
-     - Pattern : Diagonals.<br>
-     - Range : Full.<br>
-     <br>
-     __ Class Dependency : ChessBoard __
-
-     @param sender The ChessBoard to apply the pattern on.
-     @param row    The row index of the start cell.
-     @param col    The col index of the start cell.
+     * This method will apply a pattern on the [sender] ChessBoard.<br>
+     * <br>
+     * - Pattern : Diagonals.<br>
+     * - Range : Full.<br>
+     * <br>
+     * __ Class Dependency : ChessBoard __
+     *
+     * @param sender The ChessBoard to apply the pattern on.
+     * @param row    The row index of the start cell.
+     * @param col    The col index of the start cell.
      */
-    public void applyPattern (IChessBoard sender, int row, int col)
-    {
+    public void applyPattern(IChessBoard sender, int row, int col) {
         if (!(sender instanceof ChessBoard)) return;
 
         ChessBoard chessBoard = (ChessBoard) sender;
@@ -45,8 +43,7 @@ public class Bishop implements IChessPiece
         //region diagonale top left
         y = row;
         x = col;
-        while (y > 0 && x > 0)
-        {
+        while (y > 0 && x > 0) {
             y--;
             x--;
 
@@ -56,8 +53,7 @@ public class Bishop implements IChessPiece
         //region diagonale top right
         y = row;
         x = col;
-        while (y > 0 && x < chessBoard.width - 1)
-        {
+        while (y > 0 && x < chessBoard.width - 1) {
             y--;
             x++;
 
@@ -68,8 +64,7 @@ public class Bishop implements IChessPiece
         //region diagonale bottom left
         y = row;
         x = col;
-        while (y < chessBoard.height - 1 && x > 0)
-        {
+        while (y < chessBoard.height - 1 && x > 0) {
             y++;
             x--;
 
@@ -79,8 +74,7 @@ public class Bishop implements IChessPiece
         //region diagonale bottom right
         y = row;
         x = col;
-        while (y < chessBoard.height - 1 && x < chessBoard.width - 1)
-        {
+        while (y < chessBoard.height - 1 && x < chessBoard.width - 1) {
             y++;
             x++;
 

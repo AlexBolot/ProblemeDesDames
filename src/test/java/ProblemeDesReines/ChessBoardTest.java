@@ -9,39 +9,35 @@ import junit.framework.TestSuite;
  .
  . The ChessBoardTest	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 14/04/17 10:33
+ . Last Modified : 27/12/2019 18:23
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
 
 /**
- Unit test for simple ChessBoard.
+ * Unit test for simple ChessBoard.
  */
-public class ChessBoardTest extends TestCase
-{
+public class ChessBoardTest extends TestCase {
     /**
-     Create the test case
-     
-     @param testName name of the test case
+     * Create the test case
+     *
+     * @param testName name of the test case
      */
-    public ChessBoardTest (String testName)
-    {
+    public ChessBoardTest(String testName) {
         super(testName);
     }
-    
+
     /**
-     @return the suite of tests being tested
+     * @return the suite of tests being tested
      */
-    public static Test suite ()
-    {
+    public static Test suite() {
         return new TestSuite(ChessBoardTest.class);
     }
-    
+
     /**
-     Rigourous Test :-)
+     * Rigourous Test :-)
      */
-    public void testApp ()
-    {
+    public void testApp() {
         assertTrue(true);
     }
 }

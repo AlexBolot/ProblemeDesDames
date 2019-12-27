@@ -5,16 +5,15 @@ package ProblemeDesReines.chessPiece;
  .
  . The ChessPieceType	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 27/09/17 13:21
+ . Last Modified : 27/12/2019 18:23
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
 
 /**
- Enum storing all the ChessPiece types.
+ * Enum storing all the ChessPiece types.
  */
-public enum ChessPieceType
-{
+public enum ChessPieceType {
     Queen,
     King,
     Rook,

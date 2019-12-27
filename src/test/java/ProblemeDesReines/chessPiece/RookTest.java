@@ -13,16 +13,14 @@ import static org.junit.Assert.assertTrue;
  .
  . The RookTest	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 01/10/17 01:18
+ . Last Modified : 27/12/2019 18:23
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
 
-public class RookTest
-{
+public class RookTest {
     @Test
-    public void applyPattern () throws Exception
-    {
+    public void applyPattern() throws Exception {
         int size = 100;
         int expected = 100;
         int onePercent = size * size / 100;

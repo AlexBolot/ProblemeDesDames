@@ -7,20 +7,17 @@ import java.util.Random;
  .
  . The TestingUtils	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 01/10/17 01:19
+ . Last Modified : 27/12/2019 18:23
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
 
-public class TestingUtils
-{
-    public static int getRandBetween (int min, int max)
-    {
+public class TestingUtils {
+    public static int getRandBetween(int min, int max) {
         return new Random().nextInt(max - min) + min;
     }
 
-    public static boolean isInDelta (int expected, int obtained, double delta)
-    {
+    public static boolean isInDelta(int expected, int obtained, double delta) {
         return Math.abs(obtained - expected) <= delta;
     }
 }

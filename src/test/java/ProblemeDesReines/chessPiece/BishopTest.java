@@ -13,16 +13,14 @@ import static org.junit.Assert.assertTrue;
  .
  . The BishopTest	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 01/10/17 02:04
+ . Last Modified : 27/12/2019 18:23
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
 
-public class BishopTest
-{
+public class BishopTest {
     @Test
-    public void applyPattern () throws Exception
-    {
+    public void applyPattern() throws Exception {
         int size = 100;
         int expected = 198;
         int fiftyPercent = size * size / 2;

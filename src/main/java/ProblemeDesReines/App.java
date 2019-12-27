@@ -10,18 +10,15 @@ import java.util.Scanner;
  .
  . The App	 Class was Coded by : Alexandre BOLOT
  .
- . Last Modified : 30/09/17 23:49
+ . Last Modified : 27/12/2019 18:23
  .
  . Contact : bolotalex06@gmail.com
  ...............................................................................................................................*/
 
-@SuppressWarnings ({"ConstantConditions", "InfiniteLoopStatement"})
-public class App
-{
-    public static void main (String[] args)
-    {
-        while (true)
-        {
+@SuppressWarnings({"ConstantConditions"})
+public class App {
+    public static void main(String[] args) {
+        while (true) {
             Scanner scanner = new Scanner(System.in);
 
             //region read Width and Height
@@ -37,15 +34,12 @@ public class App
             System.out.print("Select ChessPiece : ");
 
             ChessPieceType pieceType = null;
-            try
-            {
+            try {
                 String pieceName = scanner.nextLine();
                 String formatedPieceName = pieceName.substring(0, 1).toUpperCase() + pieceName.substring(1).toLowerCase();
 
                 pieceType = ChessPieceType.valueOf(formatedPieceName);
-            }
-            catch (IllegalArgumentException iae)
-            {
+            } catch (IllegalArgumentException iae) {
                 printError(iae);
             }
             //endregion
@@ -68,12 +62,9 @@ public class App
 
             //region init of ChessBoard chessBoard
             ChessBoard chessBoard = null;
-            try
-            {
+            try {
                 chessBoard = new ChessBoard(width, height, pieceType);
-            }
-            catch (IllegalArgumentException iae)
-            {
+            } catch (IllegalArgumentException iae) {
                 printError(iae);
             }
             //endregion
@@ -81,12 +72,9 @@ public class App
             //region init of DataTransferObject as result
             ChessBoard.DataTransferObject dto;
 
-            if (attemptsToDo.equalsIgnoreCase("All"))
-            {
+            if (attemptsToDo.equalsIgnoreCase("All")) {
                 dto = chessBoard.start(printResult);
-            }
-            else
-            {
+            } else {
                 dto = chessBoard.start(formatedAttemptsToDo, printResult);
             }
             //endregion
@@ -112,23 +100,20 @@ public class App
     }
 
     /**
-     Gets an Exception, prints out its <i>getMessage()</i> and exits Runtime with code 1.
-
-     @param e The Exception that has to be printed.
+     * Gets an Exception, prints out its <i>getMessage()</i> and exits Runtime with code 1.
+     *
+     * @param e The Exception that has to be printed.
      */
-    private static void printError (Exception e)
-    {
+    private static void printError(Exception e) {
         StringBuilder str = new StringBuilder();
 
-        for (int i = 0; i < e.getMessage().length(); i++)
-        {
+        for (int i = 0; i < e.getMessage().length(); i++) {
             str.append("-");
         }
 
         str.append("\n").append(e.getMessage()).append("\n");
 
-        for (int i = 0; i < e.getMessage().length(); i++)
-        {
+        for (int i = 0; i < e.getMessage().length(); i++) {
             str.append("-");
         }
 
@@ -137,24 +122,20 @@ public class App
     }
 
     /**
-     Tests if [string] can be casted in an int strictly positive.<br>
-     If false, will raise and use <i>printError()</i> a <i>new IllegalArgumentError</i>.
-
-     @param string Value to be casted.
-     @return The int value of [string] if it was able to be casted and is strictly positive.
+     * Tests if [string] can be casted in an int strictly positive.<br>
+     * If false, will raise and use <i>printError()</i> a <i>new IllegalArgumentError</i>.
+     *
+     * @param string Value to be casted.
+     * @return The int value of [string] if it was able to be casted and is strictly positive.
      */
-    private static int positiveIntTryParse (String string)
-    {
+    private static int positiveIntTryParse(String string) {
         int res = 0;
 
-        try
-        {
+        try {
             res = Integer.parseInt(string);
 
             if (res <= 0) printError(new IllegalArgumentException("Error —> " + string + " not strictly positive"));
-        }
-        catch (NumberFormatException nfe)
-        {
+        } catch (NumberFormatException nfe) {
             printError(new IllegalArgumentException("Error —> '" + string + "' is not a number"));
         }
 
